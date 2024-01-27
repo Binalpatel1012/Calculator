@@ -28,5 +28,17 @@ namespace MyApp.Namespace
             return a * b;
         }
 
+        //Divide two decimal parameters.
+        [HttpGet("Divide")]
+        public ActionResult<decimal> Divide(decimal a, decimal b)
+        {
+            if (b == 0)
+            {
+                return BadRequest("Division by zero is not allowed.");
+            }
+            return a / b;
+        }
+
+        
     }
 }
