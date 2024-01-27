@@ -5,7 +5,13 @@ namespace MyApp.Namespace
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Calculatorcontroller : ControllerBase
+    public class CalculatorController : ControllerBase
     {
+        [HttpGet("Add")]
+        public ActionResult<decimal> Add(decimal a, decimal b)
+        {
+            return a + b;
+        }
+
     }
 }
