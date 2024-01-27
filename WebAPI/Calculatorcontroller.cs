@@ -21,5 +21,12 @@ namespace MyApp.Namespace
             return a - b;
         }
 
+        //Multiply two decimal parameters.
+        [HttpGet("Multiply")]
+        public ActionResult<decimal> Multiply(decimal a, decimal b)
+        {
+            return a * b;
+        }
+
     }
 }
