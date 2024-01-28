@@ -18,6 +18,11 @@ namespace MyApp.Namespace
         [HttpGet("Subtract")]
         public ActionResult<decimal> Subtract(decimal a, decimal b)
         {
+            if (a > b)
+            {
+                return BadRequest("For substract the first parameter must not be greater than the second parameter.");
+            }
+
             return a - b;
         }
 
@@ -36,6 +41,12 @@ namespace MyApp.Namespace
             {
                 return BadRequest("Division by zero is not allowed!");
             }
+
+            if (a > b)
+            {
+                return BadRequest("For Division The first parameter must not be greater than the second parameter.");
+            }
+
             return a / b;
         }
 
@@ -47,6 +58,12 @@ namespace MyApp.Namespace
             {
                 return BadRequest("Modulo by zero is not allowed!");
             }
+
+            if (a > b)
+            {
+                return BadRequest("For Modulo The first parameter must not be greater than the second parameter.");
+            }
+
             return a % b;
         }
 
