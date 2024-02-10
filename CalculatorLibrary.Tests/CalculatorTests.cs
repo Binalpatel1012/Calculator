@@ -293,5 +293,76 @@ namespace CalculatorLibrary.Tests
             Assert.AreEqual(0, result);
         }
 
+        //For Modulo Logic 
+
+        
+
+        [TestMethod]
+        public void Modulo_TwoPositiveNumbers_ReturnsCorrectRemainder()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = 3;
+
+            // Act
+            var result = _calculator.Modulo(a, b);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void Modulo_PositiveAndNegativeNumber_ReturnsCorrectRemainder()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = -3;
+
+            // Act
+            var result = _calculator.Modulo(a, b);
+
+            // Assert
+            Assert.AreEqual(1, result); // Depending on implementation, consider the sign of the result
+        }
+
+        [TestMethod]
+        public void Modulo_TwoNegativeNumbers_ReturnsCorrectRemainder()
+        {
+            // Arrange
+            decimal a = -10;
+            decimal b = -3;
+
+            // Act
+            var result = _calculator.Modulo(a, b);
+
+            // Assert
+            Assert.AreEqual(-1, result); // Depending on implementation, consider the sign of the result
+        }
+
+        [TestMethod]
+        public void Modulo_NumberByOne_ReturnsZero()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = 1;
+
+            // Act
+            var result = _calculator.Modulo(a, b);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void Modulo_NumberByZero_ThrowsDivideByZeroException()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = 0;
+
+            // Act
+            _calculator.Modulo(a, b);
+        }
     }
 }
