@@ -80,6 +80,7 @@ namespace CalculatorLibrary.Tests
         }
 
         // For Substract Logic
+
         [TestMethod]
         public void Subtract_TwoPositiveNumbers_ReturnsCorrectDifference()
         {
@@ -148,6 +149,78 @@ namespace CalculatorLibrary.Tests
 
             // Assert
             Assert.AreEqual(-5, result);
+        }
+
+        //For Multiply Logic
+
+        [TestMethod]
+        public void Multiply_TwoPositiveNumbers_ReturnsPositiveProduct()
+        {
+            // Arrange
+            decimal a = 5;
+            decimal b = 6;
+
+            // Act
+            var result = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(30, result);
+        }
+
+        [TestMethod]
+        public void Multiply_PositiveAndNegativeNumber_ReturnsNegativeProduct()
+        {
+            // Arrange
+            decimal a = -5;
+            decimal b = 6;
+
+            // Act
+            var result = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(-30, result);
+        }
+
+        [TestMethod]
+        public void Multiply_TwoNegativeNumbers_ReturnsPositiveProduct()
+        {
+            // Arrange
+            decimal a = -5;
+            decimal b = -6;
+
+            // Act
+            var result = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(30, result);
+        }
+
+        [TestMethod]
+        public void Multiply_NumberByZero_ReturnsZero()
+        {
+            // Arrange
+            decimal a = 0;
+            decimal b = 5;
+
+            // Act
+            var result = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void Multiply_TwoZeros_ReturnsZero()
+        {
+            // Arrange
+            decimal a = 0;
+            decimal b = 0;
+
+            // Act
+            var result = _calculator.Multiply(a, b);
+
+            // Assert
+            Assert.AreEqual(0, result);
         }
 
     }
