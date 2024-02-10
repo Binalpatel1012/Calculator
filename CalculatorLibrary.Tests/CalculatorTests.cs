@@ -8,6 +8,7 @@ namespace CalculatorLibrary.Tests
     {
         private readonly Calculator _calculator = new Calculator();
 
+        // For Add logic
         [TestMethod]
         public void Add_TwoPositiveNumbers_ReturnsCorrectSum()
         {
@@ -77,5 +78,77 @@ namespace CalculatorLibrary.Tests
             // Assert
             Assert.AreEqual(0, result);
         }
+
+        // For Substract Logic
+        [TestMethod]
+        public void Subtract_TwoPositiveNumbers_ReturnsCorrectDifference()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = 5;
+
+            // Act
+            var result = _calculator.Subtract(a, b);
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
+        public void Subtract_LargerNumberFromSmaller_ReturnsNegativeResult()
+        {
+            // This test assumes your logic allows for negative results
+            // Arrange
+            decimal a = 5;
+            decimal b = 10;
+
+            // Act
+            var result = _calculator.Subtract(a, b);
+
+            // Assert
+            Assert.AreEqual(-5, result);
+        }
+
+        [TestMethod]
+        public void Subtract_NumberFromItself_ReturnsZero()
+        {
+            // Arrange
+            decimal a = 5;
+
+            // Act
+            var result = _calculator.Subtract(a, a);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [TestMethod]
+        public void Subtract_NegativeNumbers_ReturnsCorrectDifference()
+        {
+            // Arrange
+            decimal a = -5;
+            decimal b = -3;
+
+            // Act
+            var result = _calculator.Subtract(a, b);
+
+            // Assert
+            Assert.AreEqual(-2, result);
+        }
+
+        [TestMethod]
+        public void Subtract_FromZero_ReturnsNegativeNumber()
+        {
+            // Arrange
+            decimal a = 0;
+            decimal b = 5;
+
+            // Act
+            var result = _calculator.Subtract(a, b);
+
+            // Assert
+            Assert.AreEqual(-5, result);
+        }
+
     }
 }

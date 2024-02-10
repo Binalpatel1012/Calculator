@@ -9,11 +9,6 @@ namespace CalculatorLibrary
 
         public decimal Subtract(decimal a, decimal b)
         {
-            if (a > b)
-            {
-                throw new ArgumentException("For subtract, the first parameter must not be greater than the second parameter.");
-            }
-
             return a - b;
         }
 
