@@ -223,5 +223,75 @@ namespace CalculatorLibrary.Tests
             Assert.AreEqual(0, result);
         }
 
+
+        //For Divide Logic
+
+        [TestMethod]
+        public void Divide_TwoPositiveNumbers_ReturnsCorrectQuotient()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = 2;
+
+            // Act
+            var result = _calculator.Divide(a, b);
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
+        public void Divide_PositiveAndNegativeNumber_ReturnsNegativeQuotient()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = -2;
+
+            // Act
+            var result = _calculator.Divide(a, b);
+
+            // Assert
+            Assert.AreEqual(-5, result);
+        }
+
+        [TestMethod]
+        public void Divide_TwoNegativeNumbers_ReturnsPositiveQuotient()
+        {
+            // Arrange
+            decimal a = -10;
+            decimal b = -2;
+
+            // Act
+            var result = _calculator.Divide(a, b);
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
+        public void Divide_NumberByZero_ThrowsDivideByZeroException()
+        {
+            // Arrange
+            decimal a = 10;
+            decimal b = 0;
+
+            // Act & Assert
+            Assert.ThrowsException<DivideByZeroException>(() => _calculator.Divide(a, b));
+        }
+
+        [TestMethod]
+        public void Divide_ZeroByNumber_ReturnsZero()
+        {
+            // Arrange
+            decimal a = 0;
+            decimal b = 5;
+
+            // Act
+            var result = _calculator.Divide(a, b);
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
     }
 }

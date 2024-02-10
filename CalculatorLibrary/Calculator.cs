@@ -24,24 +24,15 @@ namespace CalculatorLibrary
                 throw new DivideByZeroException("Division by zero is not allowed!");
             }
 
-            if (a > b)
-            {
-                throw new ArgumentException("For division, the first parameter must not be greater than the second parameter.");
-            }
-
             return a / b;
         }
+
 
         public decimal Modulo(decimal a, decimal b)
         {
             if (b == 0)
             {
                 throw new DivideByZeroException("Modulo by zero is not allowed!");
-            }
-
-            if (a > b)
-            {
-                throw new ArgumentException("For modulo, the first parameter must not be greater than the second parameter.");
             }
 
             return a % b;
